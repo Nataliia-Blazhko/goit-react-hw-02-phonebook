@@ -1,4 +1,5 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
 
 export class ContactListItem extends Component {
   render() {
@@ -17,5 +18,9 @@ export class ContactListItem extends Component {
     );
   }
 }
-
-export default ContactListItem;
+ContactListItem.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.string,
+  id: PropTypes.string,
+  deleteContact: PropTypes.func,
+};
