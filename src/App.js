@@ -38,14 +38,19 @@ class App extends Component {
     });
   };
 
+  handleFilter = (e) => {
+    this.setState({ filter: e.target.value });
+  };
+
   render() {
     return (
       <div>
         <h1>Phonebook</h1>
         <ContactForm addContact={this.addContact} />
         <h2>Contacts</h2>
-        {/* <Filter /> */}
+        <Filter filter={this.state.filter} handleFilter={this.handleFilter} />
         <ContactList
+          filter={this.state.filter}
           list={this.state.contacts}
           deleteContact={this.deleteContact}
         />
