@@ -11,6 +11,10 @@ export class ContactForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  clearForm = () => {
+    this.setState({ name: "", number: "" });
+  };
+
   render() {
     return (
       <div className="container">
@@ -18,6 +22,7 @@ export class ContactForm extends Component {
           onSubmit={(e) => {
             e.preventDefault();
             this.props.addContact(this.state);
+            this.clearForm();
           }}
         >
           <label htmlFor="name" className="subtitle">
